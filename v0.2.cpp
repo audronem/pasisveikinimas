@@ -6,7 +6,8 @@ using std::cin;
 using std::endl;
 using std::string;
 
-void ireminimas(string eil, int n){
+void ireminimas(string eil){
+    int n=eil.size();
     string pr("* ");
     string pab(" *");
     string eil2(pr+string(n, ' ')+pab);
@@ -22,12 +23,25 @@ void ireminimas(string eil, int n){
     cout<<eil5<<endl;
 }
 
+bool vyr(string vardas){
+    char r=vardas.back();
+    if(r=='s'){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
 int main(){
-    string vardas, v;
+    string eil, vardas, v;
     cout<<"Iveskite savo varda: ";
     cin>>vardas;
-    string eil="Sveikas, "+vardas+"!";
-    int n=eil.size();
-    ireminimas(eil, n);
-    return 0;
+    if(vyr(vardas)){
+        eil="Sveikas, "+vardas+"!";
+    }
+    else{
+        eil="Sveika, "+vardas+"!";
+    }
+    ireminimas(eil);
 }
